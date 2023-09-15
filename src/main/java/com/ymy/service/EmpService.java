@@ -1,5 +1,6 @@
 package com.ymy.service;
 
+import com.ymy.pojo.Emp;
 import com.ymy.pojo.PageBean;
 
 import java.time.LocalDate;
@@ -14,4 +15,10 @@ public interface EmpService {
      * @param ids
      */
     void delete(List<Integer> ids);
+
+    /**
+     * 新增员工
+     * @param emp
+     */
+    void save(Emp emp);
 }

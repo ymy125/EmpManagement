@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -37,4 +38,12 @@ public class EmpServiceImpl implements EmpService {
         empMapper.delete(ids);
     }
 
+    @Override
+    public void save(Emp emp) {
+        //补全数据
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+        //调用添加方法
+        empMapper.insert(emp);
+    }
 }

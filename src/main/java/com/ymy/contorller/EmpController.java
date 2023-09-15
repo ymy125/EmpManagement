@@ -1,5 +1,6 @@
 package com.ymy.contorller;
 
+import com.ymy.pojo.Emp;
 import com.ymy.pojo.PageBean;
 import com.ymy.pojo.Result;
 import com.ymy.service.EmpService;
@@ -40,5 +41,15 @@ public class EmpController {
         empService.delete(ids);
         return Result.success();
 
+    }
+
+    @PostMapping
+    public Result save(@RequestBody Emp emp){
+        //记录日志
+        log.info("新增员工, emp:{}",emp);
+        //调用业务层新增功能
+        empService.save(emp);
+        //响应
+        return Result.success();
     }
 }
