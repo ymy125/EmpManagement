@@ -14,6 +14,8 @@ public class UpLoadController {
     public Result upload(String username, Integer age, MultipartFile image){
         log.info("上传文件：{},{},{}",username,age,image);
 
+        //将文件存储在服务器的磁盘目录中
+
         return Result.success();
     }
 }
