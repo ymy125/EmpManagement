@@ -8,12 +8,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Slf4j
@@ -34,5 +32,13 @@ public class EmpController {
         PageBean pageBean = empService.page(page, pageSize);
         //响应
         return Result.success(pageBean);
+    }
+
+    @DeleteMapping("/{ids}")
+    public Result delete(@PathVariable List<Integer> ids){
+        log.info("批量删除操作");
+        empService.delete(ids);
+        return Result.success();
+
     }
 }

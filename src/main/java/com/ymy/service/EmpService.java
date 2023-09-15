@@ -3,8 +3,15 @@ package com.ymy.service;
 import com.ymy.pojo.PageBean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface EmpService {
 
     PageBean page(Integer page, Integer pageSize);
+
+    /**
+     * 批量删除操作
+     * @param ids
+     */
+    void delete(List<Integer> ids);
 }

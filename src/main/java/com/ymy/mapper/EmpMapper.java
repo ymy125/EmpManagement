@@ -14,4 +14,10 @@ public interface EmpMapper {
     public List<Emp> page(Integer start, Integer pageSize);
 
     List<Emp> list();
+
+    /**
+     * 批量删除员工
+     * @param ids
+     */
+    void delete(List<Integer> ids);
 }
