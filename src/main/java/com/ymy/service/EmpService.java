@@ -21,4 +21,11 @@ public interface EmpService {
      * @param emp
      */
     void save(Emp emp);
+
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
+    Emp getById(Integer id);
 }

@@ -46,4 +46,11 @@ public class EmpServiceImpl implements EmpService {
         //调用添加方法
         empMapper.insert(emp);
     }
+
+    @Override
+    public Emp getById(Integer id) {
+        return empMapper.getById(id);
+    }
+
+
 }

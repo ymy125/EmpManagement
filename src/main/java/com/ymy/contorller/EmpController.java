@@ -7,6 +7,7 @@ import com.ymy.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -51,5 +52,14 @@ public class EmpController {
         empService.save(emp);
         //响应
         return Result.success();
+    }
+
+    @GetMapping("/{id}")
+    public Result getById(@PathVariable Integer id){
+        log.info("根据id查询员工信息：{}",id);
+        Emp emp = empService.getById(id);
+
+        return Result.success(emp);
+
     }
 }
